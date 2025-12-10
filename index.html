@@ -1,0 +1,248 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AISHAH NABILAH - E-Resume</title>
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      background: #f8f9fa;
+      color: #2f3a45;
+      transition: 0.3s ease-in-out;
+    }
+
+    body[data-theme="dark"] {
+      background: #1b1b1b;
+      color: #e2e6ea;
+    }
+
+    body[data-theme="dark"] .sidebar { background: #111; color: #ffffff; }
+    body[data-theme="dark"] .sidebar img { border-color: #d4af37; }
+    body[data-theme="dark"] .info b { color: #d4af37; }
+    body[data-theme="dark"] .topnav { background: #222; border-bottom-color: #d4af37; }
+    body[data-theme="dark"] .topnav a { color: #e2e6ea; }
+    body[data-theme="dark"] .topnav a:hover,
+    body[data-theme="dark"] .topnav a.active { color: #d4af37; }
+    body[data-theme="dark"] .content-box { background: #222; color: #e2e6ea; }
+    body[data-theme="dark"] .footer { background: #111; color: #d4af37; }
+
+    * { transition: 0.3s ease-in-out; }
+
+    .layout { display: flex; min-height: 100vh; }
+    /* SIDEBAR */
+    .sidebar{
+      width:250px;
+      background:linear-gradient(180deg,#0d1b2a,#132336);
+      color:#fff;
+      padding:30px 25px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      box-shadow:4px 0 12px rgba(0,0,0,0.3);
+    }
+
+    .sidebar img{
+      width:130px;
+      height:160px;
+      border-radius:8px;
+      object-fit:cover;
+      border:3px solid #d4af37;
+      background:#ccc;
+      transition:0.4s ease;
+    }
+
+    .sidebar img:hover{
+      transform:scale(1.06);
+      box-shadow:0 0 18px #d4af37;
+    }
+
+    .info{
+      margin-top:25px;
+      width:100%;
+      font-size:14px;
+      line-height:1.7;
+      color:#e2e6ea;
+    }
+
+    .info b{color:#d4af37;font-weight:600;}
+
+    /* NAVIGATION */
+    .topnav { background: #ffffff; padding: 18px 0; border-bottom: 3px solid #d4af37; text-align: center; position: sticky; top: 0; z-index: 20; }
+    .topnav a {
+      text-decoration: none;
+      color: #0d1b2a;
+      font-weight: bold;
+      margin: 0 20px;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    .topnav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      left: 0;
+      bottom: -5px;
+      background: #d4af37;
+      border-radius: 2px;
+      transition: width 0.3s ease-in-out;
+    }
+    .topnav a:hover::after,
+    .topnav a.active::after { width: 100%; }
+
+    .theme-toggle {
+      cursor: pointer;
+      margin-left: 15px;
+      font-size: 18px;
+      color: #0d1b2a;
+    }
+
+    .content-area { flex: 1; display: flex; flex-direction: column; animation: fadeIn 0.6s ease-in-out; }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(8px);} to {opacity: 1; transform: translateY(0);} }
+
+    .content-box { padding: 35px; background: white; margin: 30px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); overflow: hidden; }
+    h2 { color: #0d1b2a; font-size: 28px; border-left: 6px solid #d4af37; padding-left: 15px; margin-bottom: 20px; }
+    p { font-size: 16px; line-height: 1.7; max-width: 850px; }
+
+    .footer { text-align: center; padding: 15px; background: #0d1b2a; color: #d4af37; margin-top: auto; font-size: 14px; letter-spacing: 0.5px; }
+
+    /* SMOOTH ANIMATED TITLE */
+    .animated-title-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      height: 50px; 
+      margin-bottom: 25px;
+    }
+
+    .animated-title {
+      color: #0d1b2a;
+      white-space: nowrap;
+      display: inline-block;
+      position: absolute;
+      will-change: transform;
+      font-size: 32px;
+      font-weight: bold;
+      animation: smoothSlide 12s linear infinite;
+    }
+
+    @keyframes smoothSlide {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ★ NEW AUDIO DESIGN ★ */
+    .audio-wrapper {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .audio-wrapper audio {
+      width: 60%;
+      max-width: 400px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #0d1b2a, #123456);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+      padding: 8px;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .audio-wrapper audio { width: 90%; }
+    }
+
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; flex-direction: row; justify-content: center; padding: 15px; }
+      .sidebar img { width: 90px; height: 110px; margin-right: 15px; }
+      .info { text-align: left; font-size: 13px; }
+      .content-box { margin: 15px; padding: 25px; }
+      .animated-title { font-size: 24px; }
+    }
+  </style>
+</head>
+
+<body data-theme="light">
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+      <img src="pic2.jpg" alt="Profile Picture">
+      <div class="info">
+          <b>Name:  </b> <br> AISHAH NABILAH <br> 
+          <b>Address:</b> <br> 📍55 FELDA KERATONG 4 <br>
+          26900 BANDAR TUN RAZAK <br>
+          PAHANG DARUL MAKMUR <br>
+          <b>Phone:</b> <br> 📞014-8205134 <br>
+          <b>Email: </b> <br> 📩aishahnabilah3934c063@gmail.com
+      </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-area">
+
+    <div class="topnav">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="education.html">Education</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Working Experience</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+>
+      <i class="fas fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode"></i>
+    </div>
+
+    <div class="content-box">
+      <div class="animated-title-wrapper">
+        <h1 class="animated-title">WELCOME TO MY E - RESUME</h1>
+      </div>
+<br>
+      <p><h4>
+       <li>  Thank you for visiting my digital resume. Here, you will find detailed information about my background, academic journey, skills, work experiences, and selected portfolio projects. </li> <br>
+        <br><br><br>
+        <li> Please use the navigation menu above to explore each section and get to know me better. </li>
+        <br><br><br>
+
+  <!-- ★ NEW AUDIO PLAYER STYLE ★ -->
+  <div class="audio-wrapper">
+      <audio controls autoplay loop>
+        <source src="audio.mp3" type="audio/mpeg">
+      </audio>
+  </div>
+
+      </p></h4>
+    </div>
+
+    <div class="footer">
+      © 2025 AISHAH NABILAH — E-Resume
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    const body = document.body;
+    if(body.getAttribute('data-theme') === 'light'){
+      body.setAttribute('data-theme','dark');
+      themeToggle.classList.replace('fa-moon','fa-sun');
+    } else {
+      body.setAttribute('data-theme','light');
+      themeToggle.classList.replace('fa-sun','fa-moon');
+    }
+  });
+</script>
+
+</body>
+</html>
