@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills - AISHAH NABILAH</title>
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      background: #f8f9fa;
+      color: #2f3a45;
+      transition: 0.3s ease-in-out;
+    }
+
+    body.dark-mode {
+      background: #000000;
+      color: #e2e6ea;
+    }
+
+    * { transition: 0.3s ease-in-out; }
+
+    .layout { display: flex; min-height: 100vh; }
+
+    /* SIDEBAR */
+    .sidebar{
+      width:250px;
+      background:linear-gradient(180deg,#0d1b2a,#132336);
+      color:#fff;
+      padding:30px 25px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      box-shadow:4px 0 12px rgba(0,0,0,0.3);
+    }
+
+    .sidebar img{
+      width:130px;
+      height:160px;
+      border-radius:8px;
+      object-fit:cover;
+      border:3px solid #d4af37;
+      background:#ccc;
+      transition:0.4s ease;
+    }
+
+    .sidebar img:hover{
+      transform:scale(1.06);
+      box-shadow:0 0 18px #d4af37;
+    }
+
+    .info{
+      margin-top:25px;
+      width:100%;
+      font-size:14px;
+      line-height:1.7;
+      color:#e2e6ea;
+    }
+
+    .info b{color:#d4af37;font-weight:600;}
+
+    /* TOP NAV */
+    .topnav {
+      background: #ffffff;
+      padding: 18px 0;
+      border-bottom: 3px solid transparent; /* initially transparent */
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode .topnav { background: #111111; }
+
+    .topnav a {
+      text-decoration: none;
+      color: #0d1b2a;
+      font-weight: bold;
+      margin: 0 20px;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    body.dark-mode .topnav a { color: #e2e6ea; }
+
+    /* Underline only for active or hover */
+    .topnav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      background-color: #d4af37; /* gold underline */
+      border-radius: 2px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .topnav a:hover::after,
+    .topnav a.active::after {
+      width: 100%;
+    }
+
+    .theme-toggle { cursor: pointer; margin-left: 15px; }
+
+    /* CONTENT */
+    .content-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(8px);}
+      to   {opacity: 1; transform: translateY(0);}
+    }
+
+    .content-box {
+      padding: 35px;
+      background: white;
+      margin: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode .content-box { background: #111111; color: #e2e6ea; }
+
+    h2 {
+      color: #0d1b2a;
+      font-size: 28px;
+      border-left: 6px solid #d4af37;
+      padding-left: 15px;
+      margin-bottom: 20px;
+    }
+
+    body.dark-mode h2 { color: #e2e6ea; }
+
+    h3 {
+      color: #0d1b2a;
+      margin-top: 25px;
+      font-size: 20px;
+    }
+
+    body.dark-mode h3 { color: #e2e6ea; }
+
+    /* SOFTWARE BARS */
+    .skill-bar {
+      position: relative;
+      height: 25px;
+      background: #e0e0e0;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .skill-bar span {
+      position: absolute;
+      height: 100%;
+      display: block;
+      border-radius: 12px;
+      line-height: 25px;
+      color: #fff;
+      text-align: right;
+      padding-right: 10px;
+      font-weight: bold;
+      animation: fill 2s forwards;
+      background: linear-gradient(135deg, #0d1b2a, #1b3b5a);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    @keyframes fill {
+      from { width: 0; }
+      to { width: var(--skill-percent); }
+    }
+
+    .software-word { margin-bottom: 8px; font-weight: bold; }
+
+    /* PIE CHART CENTER */
+    .pie-container { width: 300px; margin: 40px auto; }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 15px;
+      background: #0d1b2a;
+      color: #d4af37;
+      margin-top: auto;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark-mode .footer { background: #111111; color: #d4af37; }
+
+    /* BACK TO TOP BUTTON */
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 45px;
+      height: 45px;
+      background: #d4af37;
+      color: #0d1b2a;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.4s ease-in-out;
+      z-index: 999;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.dark-mode .back-to-top { background: #d4af37; color: #111; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; flex-direction: row; justify-content: center; padding: 15px; }
+      .sidebar img { width: 90px; height: 110px; margin-right: 15px; }
+      .info { font-size: 13px; text-align: left; }
+      .content-box { margin: 15px; padding: 25px; }
+      .topnav a { margin: 0 10px; font-size: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <img src="pic2.jpg" alt="Profile Picture">
+    <div class="info">
+      <b>Name:  </b> <br>AISHAH NABILAH <br> 
+      <b>Address:</b> <br>📍55 FELDA KERATONG 4 
+<br>  26900 BANDAR TUN RAZAK
+<br>   PAHANG DARUL MAKMUR <br>
+      <b>Phone:</b> <br>📞014-8205134 <br>
+      <b>Email: </b> <br> 📩aishahnabilah3934c063@gmail.com <br>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-area">
+    <div class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="education.html">Education</a>
+      <a href="skills.html" class="active">Skills</a>
+      <a href="experience.html">Working Experience</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <i class="fas fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode"></i>
+    </div>
+
+    <div class="content-box">
+      <h2>Skills</h2>
+
+      <h3>Software</h3>
+      <div class="software-word">Microsoft Office</div>
+      <div class="skill-bar"><span style="--skill-percent:90%;">90%</span></div>
+      <div class="software-word">Google Workspace</div>
+      <div class="skill-bar"><span style="--skill-percent:85%;">85%</span></div>
+      <div class="software-word">Canva</div>
+      <div class="skill-bar"><span style="--skill-percent:90%;">90%</span></div>
+      <div class="software-word">CapCut</div>
+      <div class="skill-bar"><span style="--skill-percent:75%;">75%</span></div>
+
+      <h3>Soft Skills</h3>
+      <div class="pie-container">
+        <canvas id="softSkillsChart"></canvas>
+      </div>
+
+      <h3>Languages</h3>
+      <ul>
+        <li>Malay (Fluent)</li>
+        <li>English (Intermediate)</li>
+      </ul>
+
+    </div>
+
+    <div class="footer">
+      © 2025 AISHAH NABILAH — E-Resume
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Back to top -->
+<a href="#" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+
+  // Show Back to Top button
+  const backTop = document.querySelector(".back-to-top");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 250) backTop.classList.add("show");
+    else backTop.classList.remove("show");
+  });
+
+  // Soft Skills Pie Chart
+  const ctx = document.getElementById('softSkillsChart').getContext('2d');
+  const softSkillsChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Teamwork', 'Adaptability', 'Time Management', 'Problem Solving', 'Integrity'],
+      datasets: [{
+        data: [25, 20, 20, 15, 20],
+        backgroundColor: ['#0d1b2a','#1b3b5a','#2f5c80','#4a7aa3','#d4af37'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: { legend: { position: 'bottom', labels: { color: '#2f3a45' } } }
+    }
+  });
+
+  // Dark mode adjust chart legend
+  const observer = new MutationObserver(() => {
+    const isDark = document.body.classList.contains('dark-mode');
+    softSkillsChart.options.plugins.legend.labels.color = isDark ? '#e2e6ea' : '#2f3a45';
+    softSkillsChart.update();
+  });
+  observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+</script>
+
+</body>
+</html>
