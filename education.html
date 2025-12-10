@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education - AISHAH NABILAH</title>
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      background: #f8f9fa;
+      color: #2f3a45;
+      transition: 0.1s ease-in-out;
+    }
+
+    body[data-theme="dark"] {
+      background: #1b1b1b;
+      color: #e2e6ea;
+    }
+    body[data-theme="dark"] .sidebar { background: #111; color: #ffffff; }
+    body[data-theme="dark"] .sidebar img { border-color: #d4af37; }
+    body[data-theme="dark"] .info b { color: #d4af37; }
+    body[data-theme="dark"] .topnav { background: #222; border-bottom-color: #d4af37; }
+    body[data-theme="dark"] .topnav a { color: #e2e6ea; }
+    body[data-theme="dark"] .topnav a:hover, body[data-theme="dark"] .topnav a.active { color: #d4af37; }
+    body[data-theme="dark"] .content-box { background: #222; color: #e2e6ea; }
+    body[data-theme="dark"] .footer { background: #111; color: #d4af37; }
+    body[data-theme="dark"] .back-to-top { background: #d4af37; color: #111; }
+
+    * { transition: 0.1s ease-in-out; }
+
+    .layout { display: flex; min-height: 100vh; }
+
+    .sidebar { width: 250px; background: #0d1b2a; color: #ffffff; padding: 30px 25px; display: flex; flex-direction: column; align-items: center; box-shadow: 4px 0 12px rgba(0,0,0,0.3); }
+    .sidebar img { width: 130px; height: 160px; object-fit: cover; border-radius: 8px; border: 2px solid #d4af37; background: #ccc; }
+    .sidebar img:hover { box-shadow: 0 0 14px #d4af37; }
+    .info { margin-top: 25px; width: 100%; line-height: 1.7; color: #e2e6ea; font-size: 14px; }
+    .info b { color: #d4af37; }
+
+    .topnav { background: #ffffff; padding: 18px 0; border-bottom: 3px solid #d4af37; text-align: center; position: sticky; top: 0; z-index: 20; }
+    .topnav a { text-decoration: none; color: #0d1b2a; font-weight: bold; margin: 0 20px; font-size: 16px; position: relative; }
+    .topnav a::after { content: ""; position: absolute; width: 0; height: 3px; left: 0; bottom: -5px; background: #d4af37; border-radius: 2px; transition: width 0.3s ease-in-out; }
+    .topnav a:hover::after, .topnav a.active::after { width: 100%; }
+    .theme-toggle { cursor: pointer; margin-left: 15px; font-size: 18px; color: #0d1b2a; }
+
+    .content-area { flex: 1; display: flex; flex-direction: column; animation: fadeIn 0.6s ease-in-out; }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(8px);} to {opacity: 1; transform: translateY(0);} }
+
+    .content-box { padding: 35px; background: white; margin: 30px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    h2 { color: #0d1b2a; font-size: 28px; border-left: 6px solid #d4af37; padding-left: 15px; margin-bottom: 20px; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #dcdcdc; padding: 12px; text-align: left; vertical-align: middle; }
+    th { background: linear-gradient(to right, #ffd700, #e6be8a); color: #0d1b2a; }
+    td img { width: 120px; height: 120px; object-fit: cover; border-radius: 8px; transition: 0.4s ease; cursor: pointer; }
+    td img:hover { transform: scale(1.08); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .back-to-top { position: fixed; bottom: 25px; right: 25px; background: #d4af37; color: #0d1b2a; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: 50%; font-size: 20px; text-decoration: none; box-shadow: 0 0 12px rgba(0,0,0,0.3); opacity: 0; pointer-events: none; transition: 0.4s ease-in-out; z-index: 999; }
+    .back-to-top.show { opacity: 1; pointer-events: auto; }
+
+    .footer { text-align: center; padding: 15px; background: #0d1b2a; color: #d4af37; margin-top: auto; font-size: 14px; letter-spacing: 0.5px; }
+
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; flex-direction: row; justify-content: center; padding: 15px; }
+      .sidebar img { width: 90px; height: 110px; margin-right: 15px; }
+      .info { text-align: left; font-size: 13px; }
+      .content-box { margin: 15px; padding: 25px; }
+      .topnav a { margin: 0 10px; font-size: 14px; }
+      td img { width: 90px; height: 90px; }
+    }
+  </style>
+</head>
+
+<body data-theme="light">
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+      <img src="pic2.jpg" alt="Profile Picture">
+
+    <div class="info">
+      <b>Name:  </b> <br> AISHAH NABILAH <br> 
+      <b>Address:</b> <br> 📍55 FELDA KERATONG 4 <br> 26900 BANDAR TUN RAZAK <br>
+      PAHANG DARUL MAKMUR <br>
+      <b>Phone:</b> <br> 📞014-8205134 <br>
+      <b>Email:</b> <br> 📩aishahnabilah3934c063@gmail.com
+    </div>
+  </div>
+
+  <div class="content-area">
+
+    <div class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="education.html" class="active">Education</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Working Experience</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <i class="fas fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode"></i>
+    </div>
+
+    <div class="content-box">
+      <h2>Education</h2>
+
+      <p class="reveal">
+        Below is my educational journey from early schooling to the present. Each institution has helped
+        shape my knowledge, discipline, <br><br>and skills, providing a strong foundation for both academic
+        and professional growth.
+      </p>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <p class="reveal" style="font-weight:bold; color:#0d1b2a; margin-top: 15px;">
+          Click on each image to visit the school's Google search page.
+        </p>
+      </div>
+
+      <table>
+        <tr class="reveal">
+          <th>Year</th>
+          <th>School / Institution</th>
+          <th>Image</th>
+        </tr>
+ 
+          
+       
+         
+        <tr class="reveal">
+          <td>2016–2018 <br><br>(4A 3B 1C)</td>
+          <td>SMK Padang Piol</td>
+          <td><img src="pic6.jpeg" alt="SMK Padang Piol" onclick="window.open('https://www.google.com/search?q=SMK+Padang+Piol', '_blank')"></td>
+        </tr>
+        <tr class="reveal">
+          <td>2019–2020 <br><br>(4A 3B 2C)</td>
+          <td>SMK Bandar Tun Razak, Bantura (SPM)</td>
+          <td><img src="pic7.jpg" alt="SMK Bandar Tun Razak" onclick="window.open('https://www.google.com/search?q=SMK+Bandar+Tun+Razak', '_blank')"></td>
+        </tr>
+        <tr class="reveal">
+          <td>2021–2023 <br><br>(GPA 3.33)</td>
+          <td>SMK Abu Bakar (STPM)</td>
+          <td><img src="pic8.jpeg" alt="SMK Abu Bakar" onclick="window.open('https://www.google.com/search?q=SMK+Abu+Bakar', '_blank')"></td>
+        </tr>
+        <tr class="reveal">
+          <td>2023–Current <br><br>(GPA 3.12)</td>
+          <td>UiTM Kedah (BACHELOR DEGREE)</td>
+          <td><img src="pic9.png" alt="UiTM Kedah" onclick="window.open('https://www.google.com/search?q=UiTM+Kedah', '_blank')"></td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="footer">
+      © 2025 AISHAH NABILAH — E-Resume
+    </div>
+
+  </div>
+</div>
+
+<a href="#" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  toggle.addEventListener('click', () => {
+    const body = document.body;
+    if(body.getAttribute('data-theme') === 'light'){
+      body.setAttribute('data-theme','dark');
+      toggle.classList.replace('fa-moon','fa-sun');
+    } else {
+      body.setAttribute('data-theme','light');
+      toggle.classList.replace('fa-sun','fa-moon');
+    }
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  window.addEventListener('scroll', () => {
+    for(let i=0;i<reveals.length;i++){
+      let windowHeight = window.innerHeight;
+      let revealTop = reveals[i].getBoundingClientRect().top;
+      let revealPoint = 150;
+
+      if(revealTop < windowHeight - revealPoint){
+        reveals[i].classList.add('active');
+      } else {
+        reveals[i].classList.remove('active');
+      }
+    }
+
+    const backTop = document.querySelector(".back-to-top");
+    if (window.scrollY > 250) {
+      backTop.classList.add("show");
+    } else {
+      backTop.classList.remove("show");
+    }
+  });
+</script>
+
+</body>
+</html>
