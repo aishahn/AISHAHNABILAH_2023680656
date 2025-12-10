@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - AISHAH NABILAH</title>
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin:0;
+      font-family:"Arial",sans-serif;
+      background:#f8f9fa;
+      color:#2f3a45;
+      transition:0.3s ease-in-out;
+    }
+
+    /* Dark Mode */
+    body[data-theme="dark"]{
+      background:#111;
+      color:#e2e6ea;
+    }
+
+    body[data-theme="dark"] .sidebar { background:#111; color:#ffffff; }
+    body[data-theme="dark"] .sidebar img { border-color:#d4af37; }
+    body[data-theme="dark"] .info b { color:#d4af37; }
+    body[data-theme="dark"] .topnav { background:#222; border-bottom-color:#d4af37; }
+    body[data-theme="dark"] .topnav a { color:#e2e6ea; }
+    body[data-theme="dark"] .topnav a:hover, body[data-theme="dark"] .topnav a.active { color:#d4af37; }
+    body[data-theme="dark"] .content-box { background:#222; color:#e2e6ea; }
+    body[data-theme="dark"] .footer { background:#111; color:#d4af37; }
+
+    *{transition:0.3s ease-in-out;}
+
+    .layout{display:flex;min-height:100vh;}
+
+    /* SIDEBAR */
+    .sidebar{
+      width:250px;
+      background:linear-gradient(180deg,#0d1b2a,#132336);
+      color:#fff;
+      padding:30px 25px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      box-shadow:4px 0 12px rgba(0,0,0,0.3);
+    }
+
+    .sidebar img{
+      width:130px;
+      height:160px;
+      border-radius:8px;
+      object-fit:cover;
+      border:3px solid #d4af37;
+      background:#ccc;
+      transition:0.4s ease;
+    }
+
+    .sidebar img:hover{
+      transform:scale(1.06);
+      box-shadow:0 0 18px #d4af37;
+    }
+
+    .info{
+      margin-top:25px;
+      width:100%;
+      font-size:14px;
+      line-height:1.7;
+      color:#e2e6ea;
+    }
+
+    .info b{color:#d4af37;font-weight:600;}
+
+    /* TOP NAV */
+    .topnav{
+      background:#fff;
+      padding:18px 0;
+      border-bottom:3px solid #d4af37;
+      text-align:center;
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+
+    .topnav a{
+      text-decoration:none;
+      color:#0d1b2a;
+      font-weight:600;
+      margin:0 20px;
+      font-size:16px;
+      position:relative;
+    }
+
+    .topnav a::after{
+      content:"";
+      position:absolute;
+      width:0;
+      height:3px;
+      left:0;
+      bottom:-5px;
+      background:#d4af37;
+      border-radius:2px;
+      transition:width 0.3s ease-in-out;
+    }
+
+    .topnav a:hover::after,
+    .topnav a.active::after{
+      width:100%;
+    }
+
+    .theme-toggle{cursor:pointer;margin-left:15px;font-size:18px;color:#0d1b2a;}
+
+    /* CONTENT AREA */
+    .content-area{flex:1;display:flex;flex-direction:column;}
+
+    .content-box{
+      padding:35px;
+      background:white;
+      margin:30px;
+      border-radius:16px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.1);
+      color:#000; /* About Me text hitam */
+    }
+
+    h2{
+      color:#0d1b2a;
+      font-size:30px;
+      background:linear-gradient(to right,#ffd700,#e6be8a);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      border-left:6px solid #d4af37;
+      padding-left:15px;
+      margin-bottom:25px;
+    }
+
+    h3{
+      color:#0d1b2a;
+      font-size:21px;
+      margin-top:25px;
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    p, ul li{
+      font-size:16px;
+      line-height:1.8;
+      color:#000;
+    }
+
+    /* Profile Summary Background */
+    .profile-summary{
+      background:linear-gradient(to right, #cce7ff, #e0f2ff);
+      padding:15px 20px;
+      border-radius:12px;
+      transition:0.4s ease;
+    }
+
+    ul{
+      margin-left:20px;
+      list-style:none;
+      padding:0;
+    }
+
+    ul li i{color:#d4af37;}
+
+    .quote-box{
+      margin-top:25px;
+      padding:18px;
+      background:linear-gradient(90deg,#e6be8a,#ffd700);
+      color:#0d1b2a;
+      border-left:6px solid #d4af37;
+      border-radius:8px;
+      font-style:italic;
+      font-size:16px;
+      animation:glow 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes glow{
+      from{box-shadow:0 0 4px #d4af37;}
+      to{box-shadow:0 0 12px #d4af37;}
+    }
+
+    .footer{
+      text-align:center;
+      padding:15px;
+      background:#0d1b2a;
+      color:#d4af37;
+      margin-top:auto;
+      font-size:14px;
+      letter-spacing:0.5px;
+    }
+
+    @media(max-width:768px){
+      .layout{flex-direction:column;}
+      .sidebar{width:100%;flex-direction:row;justify-content:center;padding:15px;}
+      .sidebar img{width:90px;height:110px;margin-right:15px;}
+      .info{text-align:left;font-size:13px;}
+      .content-box{margin:15px;padding:25px;}
+      .topnav a{margin:0 10px;font-size:14px;}
+    }
+  </style>
+</head>
+
+<body data-theme="light">
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <img src="pic2.jpg" alt="Profile Picture">
+
+    <div class="info">
+        <b>Name:  </b> <br> AISHAH NABILAH <br> 
+              <b>Address:</b> <br>  📍55 FELDA KERATONG 4 <br>
+ 26900 BANDAR TUN RAZAK <br>
+     PAHANG DARUL MAKMUR <br>
+          <b>Phone:</b> <br> 📞014-8205134 <br>
+          <b>Email: </b> <br> 📩aishahnabilah3934c063@gmail.com
+      </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="content-area">
+
+    <div class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Me</a>
+      <a href="education.html">Education</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Working Experience</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <i class="fas fa-moon theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode"></i>
+    </div>
+
+    <div class="content-box">
+      <h2>About Me</h2>
+
+      <!-- Profile Summary -->
+      <div class="profile-summary">
+        <h3><i class="fa-solid fa-user"></i> Profile Summary</h3>
+        <p>
+         I am a 22-year-old final-year student pursuing a Bachelor of Information Science (Hons) in Library Management. I am friendly, organized, and responsible, with a strong eagerness to gain hands-on experience through an internship. With enthusiasm and strong communication skills, I am ready to contribute effectively and learn from real workplace environments.
+      </div>
+
+      <!-- Career Objective -->
+      <h3><i class=" "></i> Career Objective</h3>
+      <p>
+         Gain practical experience, strengthen skills in library & information management, and contribute meaningfully while growing professionally and personally. 
+      </p>
+
+      <!-- Personal Strengths -->
+      <h3><i class="fa-solid fa-"></i> Personal Strengths</h3>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i> Teamwork & communication</li>
+        <li><i class="fa-solid fa-circle-check"></i> Fast learner & adaptable</li>
+        <li><i class="fa-solid fa-circle-check"></i> Responsible & disciplined</li>
+        <li><i class="fa-solid fa-circle-check"></i> Time management</li>
+        <li><i class="fa-solid fa-circle-check"></i> Creative & digitally skilled</li>
+      </ul>
+
+      <!-- Interests -->
+      <h3><i class=""></i> Interests</h3>
+      <ul>
+        <li><i class="fa-solid fa-circle-chevron-right"></i> Digital content creation related to library & information management</li>
+        <li><i class="fa-solid fa-circle-chevron-right"></i> Design & editing for academic & professional projects</li>
+        <li><i class="fa-solid fa-circle-chevron-right"></i> Self-development & productivity reading</li>
+        <li><i class="fa-solid fa-circle-chevron-right"></i> Technology tools & library systems</li>
+        <li><i class="fa-solid fa-circle-chevron-right"></i> Entrepreneurship & innovative projects</li>
+      </ul>
+
+      <!-- Quote -->
+      <div class="quote-box">
+        “Learning never stops — every experience shapes who we become.”
+      </div>
+
+    </div>
+
+    <div class="footer">
+      © 2025 AISHAH NABILAH — E-Resume
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Dark/Light Mode Toggle
+  const toggle = document.getElementById('themeToggle');
+  toggle.addEventListener('click', ()=>{
+    const body=document.body;
+    if(body.getAttribute('data-theme')==='light'){
+      body.setAttribute('data-theme','dark');
+      toggle.classList.replace('fa-moon','fa-sun');
+    } else{
+      body.setAttribute('data-theme','light');
+      toggle.classList.replace('fa-sun','fa-moon');
+    }
+  });
+</script>
+
+<!-- BACK TO TOP BUTTON -->
+<a href="#" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #d4af37;
+    color: #0d1b2a;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s ease-in-out;
+    z-index: 999;
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body[data-theme="dark"] .back-to-top {
+    background: #d4af37;
+    color: #111;
+  }
+</style>
+
+<script>
+  // Show Back to Top Button
+  const backTop = document.querySelector(".back-to-top");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 250) {
+      backTop.classList.add("show");
+    } else {
+      backTop.classList.remove("show");
+    }
+  });
+</script>
+
+
+
+
+
+</body>
+</html>
